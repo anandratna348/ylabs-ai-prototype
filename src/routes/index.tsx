@@ -124,6 +124,10 @@ function Home() {
               3ylabs helps organizations turn AI ambition into secure, scalable products and
               intelligent operations — from strategy through production.
             </p>
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.14em] text-[var(--brand-deep)]">
+              We advise. We build. We run our own products.
+            </p>
+
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
                 to="/contact"
