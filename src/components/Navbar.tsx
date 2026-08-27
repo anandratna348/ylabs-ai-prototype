@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Wordmark } from "./Wordmark";
 
-const links = [
+const links: { label: string; to: "/" | "/products/setu-systems" | "/approach" | "/results"; hash?: string }[] = [
   { label: "Services", to: "/", hash: "services" },
   { label: "Products", to: "/products/setu-systems" },
   { label: "Industries", to: "/", hash: "industries" },
@@ -11,7 +11,7 @@ const links = [
   { label: "Results", to: "/results" },
   { label: "Insights", to: "/", hash: "insights" },
   { label: "About", to: "/", hash: "about" },
-] as const;
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,7 +43,7 @@ export function Navbar() {
             <li key={l.label}>
               <Link
                 to={l.to}
-                hash={"hash" in l ? l.hash : undefined}
+                {...(l.hash ? { hash: l.hash } : {})}
                 className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
                 activeOptions={{ exact: false }}
               >
@@ -80,7 +80,7 @@ export function Navbar() {
               <li key={l.label}>
                 <Link
                   to={l.to}
-                  hash={"hash" in l ? l.hash : undefined}
+                  {...(l.hash ? { hash: l.hash } : {})}
                   onClick={() => setOpen(false)}
                   className="block rounded-md px-2 py-3 text-base font-medium text-foreground"
                 >

@@ -56,7 +56,7 @@ const stages = [
 
 function ApproachPage() {
   const [active, setActive] = useState(0);
-  const stage = stages[active];
+  const stage = stages[active]!;
 
   return (
     <main>

@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Wordmark } from "./Wordmark";
 import { portals } from "@/data/setu";
 
-const siteLinks = [
+const siteLinks: { label: string; to: "/" | "/products/setu-systems" | "/approach" | "/results" | "/contact"; hash?: string }[] = [
   { label: "Services", to: "/", hash: "services" },
   { label: "Products", to: "/products/setu-systems" },
   { label: "Industries", to: "/", hash: "industries" },
@@ -11,7 +11,7 @@ const siteLinks = [
   { label: "Insights", to: "/", hash: "insights" },
   { label: "About", to: "/", hash: "about" },
   { label: "Contact", to: "/contact" },
-] as const;
+];
 
 export function Footer() {
   return (
@@ -31,7 +31,7 @@ export function Footer() {
               <li key={l.label}>
                 <Link
                   to={l.to}
-                  hash={"hash" in l ? l.hash : undefined}
+                  {...(l.hash ? { hash: l.hash } : {})}
                   className="text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
                   {l.label}
