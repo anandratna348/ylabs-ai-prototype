@@ -204,12 +204,16 @@ function Home() {
             One intelligent platform. Every part of the operation.
           </h2>
           <p className="mt-5 max-w-2xl text-base text-muted-foreground">
-            Setu Systems gives you a portal for every part of your operation — cases, billing,
-            client inquiries, evidence, and insight — with AI woven through all of it.
+            Setu means "bridge" in Sanskrit — the bridge between business functions, and between
+            people and intelligent systems. Setu Systems gives you a portal for every part of your
+            operation — cases, billing, client inquiries, evidence, and insight — with AI woven
+            through all of it.
           </p>
           <p className="mt-3 text-sm font-medium text-primary">
-            Start with one portal. Add the rest as you grow.
+            Start with one portal. Add the rest as you grow — with implementation and customization
+            from 3ylabs.
           </p>
+
 
           <div className="mt-12">
             <PortalExplorer />
