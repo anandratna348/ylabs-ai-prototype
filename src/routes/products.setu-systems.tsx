@@ -40,9 +40,17 @@ function SetuPage() {
             Setu Systems gives you a portal for every part of your operation — cases, billing,
             client inquiries, evidence, and insight — with AI woven through all of it.
           </p>
-          <p className="mt-3 text-sm font-medium text-primary">
-            Start with one portal and add the rest as you grow.
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            Setu means "bridge" in Sanskrit — the bridge between business functions, and between
+            people and intelligent systems. Built by the team at 3ylabs, proven in production with
+            real legal-tech operations, and ready for any business that runs on documents,
+            deadlines and trust.
           </p>
+          <p className="mt-4 text-sm font-medium text-primary">
+            Start with one portal and add the rest as you grow. 3ylabs provides implementation and
+            customization for every portal.
+          </p>
+
         </div>
       </section>
 

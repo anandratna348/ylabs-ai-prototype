@@ -80,6 +80,22 @@ const services = [
   },
 ];
 
+const extendedServices = [
+  {
+    title: "Enterprise Intelligence",
+    body: "Business analytics, executive dashboards, operational intelligence and decision support.",
+  },
+  {
+    title: "Business Solutions & Automation",
+    body: "Workflow automation, process digitization and AI integrated into existing business systems.",
+  },
+  {
+    title: "Website Powering & Managed Hosting",
+    body: "Design, build, hosting and care of client websites and portals as an ongoing managed service.",
+  },
+];
+
+
 const industries = [
   { icon: Gavel, name: "Legal", featured: true },
   { icon: HeartPulse, name: "Healthcare" },
@@ -124,6 +140,10 @@ function Home() {
               3ylabs helps organizations turn AI ambition into secure, scalable products and
               intelligent operations — from strategy through production.
             </p>
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.14em] text-[var(--brand-deep)]">
+              We advise. We build. We run our own products.
+            </p>
+
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
                 to="/contact"
@@ -190,7 +210,20 @@ function Home() {
             </article>
           ))}
         </div>
+
+        <div className="mt-12">
+          <p className="label-mono">Extended services</p>
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
+            {extendedServices.map((s) => (
+              <article key={s.title} className="rounded-2xl border border-border bg-[var(--tint)] p-6">
+                <h3 className="font-display text-base font-semibold">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
+
 
       {/* SETU */}
       <section id="products" className="scroll-mt-20 bg-[var(--tint)] py-16 sm:py-24">
@@ -200,12 +233,16 @@ function Home() {
             One intelligent platform. Every part of the operation.
           </h2>
           <p className="mt-5 max-w-2xl text-base text-muted-foreground">
-            Setu Systems gives you a portal for every part of your operation — cases, billing,
-            client inquiries, evidence, and insight — with AI woven through all of it.
+            Setu means "bridge" in Sanskrit — the bridge between business functions, and between
+            people and intelligent systems. Setu Systems gives you a portal for every part of your
+            operation — cases, billing, client inquiries, evidence, and insight — with AI woven
+            through all of it.
           </p>
           <p className="mt-3 text-sm font-medium text-primary">
-            Start with one portal. Add the rest as you grow.
+            Start with one portal. Add the rest as you grow — with implementation and customization
+            from 3ylabs.
           </p>
+
 
           <div className="mt-12">
             <PortalExplorer />
@@ -225,6 +262,74 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* ASCENDHSI PROOF STRIP */}
+      <section className="container-page py-16 sm:py-20">
+        <div className="surface-card grid gap-8 p-7 sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+          <div>
+            <p className="label-mono">Proof in production · AscendHSI</p>
+            <h2 className="mt-3 text-2xl font-bold sm:text-3xl">
+              We run the operations behind an immigration case operations firm.
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              3ylabs powers AscendHSI's operations end to end — Setu portals for case management,
+              client ticketing and billing, AI in daily workflows with human review, and the cloud
+              infrastructure underneath.
+            </p>
+            <Link
+              to="/results"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand)] hover:underline"
+            >
+              Read the AscendHSI story <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </div>
+          <ul className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+            {[
+              "One source of truth for a distributed team",
+              "Faster client response times",
+              "An operations backbone that scales",
+            ].map((t) => (
+              <li
+                key={t}
+                className="rounded-xl border border-border bg-[var(--tint)] px-4 py-4 text-sm font-medium text-primary"
+              >
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* APPROACH PREVIEW */}
+      <section className="container-page py-16 sm:py-20">
+        <p className="label-mono">Approach</p>
+        <h2 className="mt-3 max-w-2xl text-3xl font-bold sm:text-4xl">
+          One accountable team, from strategy through production.
+        </h2>
+        <ol className="mt-10 grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          {[
+            ["01", "Discover", "Goals, workflows, data and AI opportunities."],
+            ["02", "Design", "Experience, architecture and governance."],
+            ["03", "Build", "Engineer the AI-native solution."],
+            ["04", "Deploy", "Productionize securely."],
+            ["05", "Optimize", "Measure, improve, keep innovating."],
+          ].map(([n, name, body]) => (
+            <li key={n} className="surface-card p-5">
+              <span className="font-mono text-[11px] tracking-widest text-[var(--brand)]">{n}</span>
+              <p className="mt-1 font-display font-semibold">{name}</p>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{body}</p>
+            </li>
+          ))}
+        </ol>
+        <Link
+          to="/approach"
+          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand)] hover:underline"
+        >
+          Explore the full approach <ArrowRight className="h-4 w-4" aria-hidden />
+        </Link>
+      </section>
+
+
 
       {/* INDUSTRIES */}
       <section id="industries" className="container-page scroll-mt-20 py-16 sm:py-24">
@@ -295,7 +400,26 @@ function Home() {
             </div>
           </div>
         </div>
+
+        <div className="container-page mt-14 grid gap-5 md:grid-cols-2">
+          <article className="surface-card p-7">
+            <p className="label-mono">Vision</p>
+            <p className="mt-3 text-base leading-relaxed text-foreground">
+              To become the most trusted AI transformation partner, empowering organizations to
+              build intelligent, secure and scalable digital enterprises.
+            </p>
+          </article>
+          <article className="surface-card p-7">
+            <p className="label-mono">Mission</p>
+            <p className="mt-3 text-base leading-relaxed text-foreground">
+              To help organizations identify the right AI opportunities, engineer practical
+              solutions, modernize their platforms and continuously innovate through intelligent
+              automation — delivered by one accountable team from strategy through production.
+            </p>
+          </article>
+        </div>
       </section>
+
 
       {/* INSIGHTS */}
       <section id="insights" className="container-page scroll-mt-20 py-16 sm:py-24">
