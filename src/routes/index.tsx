@@ -400,7 +400,26 @@ function Home() {
             </div>
           </div>
         </div>
+
+        <div className="container-page mt-14 grid gap-5 md:grid-cols-2">
+          <article className="surface-card p-7">
+            <p className="label-mono">Vision</p>
+            <p className="mt-3 text-base leading-relaxed text-foreground">
+              To become the most trusted AI transformation partner, empowering organizations to
+              build intelligent, secure and scalable digital enterprises.
+            </p>
+          </article>
+          <article className="surface-card p-7">
+            <p className="label-mono">Mission</p>
+            <p className="mt-3 text-base leading-relaxed text-foreground">
+              To help organizations identify the right AI opportunities, engineer practical
+              solutions, modernize their platforms and continuously innovate through intelligent
+              automation — delivered by one accountable team from strategy through production.
+            </p>
+          </article>
+        </div>
       </section>
+
 
       {/* INSIGHTS */}
       <section id="insights" className="container-page scroll-mt-20 py-16 sm:py-24">
