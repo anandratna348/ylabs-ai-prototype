@@ -194,7 +194,20 @@ function Home() {
             </article>
           ))}
         </div>
+
+        <div className="mt-12">
+          <p className="label-mono">Extended services</p>
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
+            {extendedServices.map((s) => (
+              <article key={s.title} className="rounded-2xl border border-border bg-[var(--tint)] p-6">
+                <h3 className="font-display text-base font-semibold">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
+
 
       {/* SETU */}
       <section id="products" className="scroll-mt-20 bg-[var(--tint)] py-16 sm:py-24">
