@@ -230,6 +230,74 @@ function Home() {
         </div>
       </section>
 
+      {/* ASCENDHSI PROOF STRIP */}
+      <section className="container-page py-16 sm:py-20">
+        <div className="surface-card grid gap-8 p-7 sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+          <div>
+            <p className="label-mono">Proof in production · AscendHSI</p>
+            <h2 className="mt-3 text-2xl font-bold sm:text-3xl">
+              We run the operations behind an immigration case operations firm.
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              3ylabs powers AscendHSI's operations end to end — Setu portals for case management,
+              client ticketing and billing, AI in daily workflows with human review, and the cloud
+              infrastructure underneath.
+            </p>
+            <Link
+              to="/results"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand)] hover:underline"
+            >
+              Read the AscendHSI story <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </div>
+          <ul className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+            {[
+              "One source of truth for a distributed team",
+              "Faster client response times",
+              "An operations backbone that scales",
+            ].map((t) => (
+              <li
+                key={t}
+                className="rounded-xl border border-border bg-[var(--tint)] px-4 py-4 text-sm font-medium text-primary"
+              >
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* APPROACH PREVIEW */}
+      <section className="container-page py-16 sm:py-20">
+        <p className="label-mono">Approach</p>
+        <h2 className="mt-3 max-w-2xl text-3xl font-bold sm:text-4xl">
+          One accountable team, from strategy through production.
+        </h2>
+        <ol className="mt-10 grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          {[
+            ["01", "Discover", "Goals, workflows, data and AI opportunities."],
+            ["02", "Design", "Experience, architecture and governance."],
+            ["03", "Build", "Engineer the AI-native solution."],
+            ["04", "Deploy", "Productionize securely."],
+            ["05", "Optimize", "Measure, improve, keep innovating."],
+          ].map(([n, name, body]) => (
+            <li key={n} className="surface-card p-5">
+              <span className="font-mono text-[11px] tracking-widest text-[var(--brand)]">{n}</span>
+              <p className="mt-1 font-display font-semibold">{name}</p>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{body}</p>
+            </li>
+          ))}
+        </ol>
+        <Link
+          to="/approach"
+          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand)] hover:underline"
+        >
+          Explore the full approach <ArrowRight className="h-4 w-4" aria-hidden />
+        </Link>
+      </section>
+
+
+
       {/* INDUSTRIES */}
       <section id="industries" className="container-page scroll-mt-20 py-16 sm:py-24">
         <p className="label-mono">Industries</p>
