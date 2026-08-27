@@ -80,6 +80,22 @@ const services = [
   },
 ];
 
+const extendedServices = [
+  {
+    title: "Enterprise Intelligence",
+    body: "Business analytics, executive dashboards, operational intelligence and decision support.",
+  },
+  {
+    title: "Business Solutions & Automation",
+    body: "Workflow automation, process digitization and AI integrated into existing business systems.",
+  },
+  {
+    title: "Website Powering & Managed Hosting",
+    body: "Design, build, hosting and care of client websites and portals as an ongoing managed service.",
+  },
+];
+
+
 const industries = [
   { icon: Gavel, name: "Legal", featured: true },
   { icon: HeartPulse, name: "Healthcare" },
