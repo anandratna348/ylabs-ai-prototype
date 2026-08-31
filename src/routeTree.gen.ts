@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApproachRouteImport } from './routes/approach'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ResultsRouteImport } from './routes/results'
 import { Route as ProductsSetuSystemsRouteImport } from './routes/products.setu-systems'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -30,6 +32,16 @@ const ApproachRoute = ApproachRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResultsRoute = ResultsRouteImport.update({
@@ -57,6 +69,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/approach': typeof ApproachRoute
   '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/privacy': typeof PrivacyRoute
   '/results': typeof ResultsRoute
   '/products/setu-systems': typeof ProductsSetuSystemsRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -66,6 +80,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/approach': typeof ApproachRoute
   '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/privacy': typeof PrivacyRoute
   '/results': typeof ResultsRoute
   '/products/setu-systems': typeof ProductsSetuSystemsRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -76,6 +92,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/approach': typeof ApproachRoute
   '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/privacy': typeof PrivacyRoute
   '/results': typeof ResultsRoute
   '/products/setu-systems': typeof ProductsSetuSystemsRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -87,6 +105,8 @@ export interface FileRouteTypes {
     | '/'
     | '/approach'
     | '/contact'
+    | '/industries'
+    | '/privacy'
     | '/results'
     | '/products/setu-systems'
     | '/services/$slug'
@@ -96,6 +116,8 @@ export interface FileRouteTypes {
     | '/'
     | '/approach'
     | '/contact'
+    | '/industries'
+    | '/privacy'
     | '/results'
     | '/products/setu-systems'
     | '/services/$slug'
@@ -105,6 +127,8 @@ export interface FileRouteTypes {
     | '/'
     | '/approach'
     | '/contact'
+    | '/industries'
+    | '/privacy'
     | '/results'
     | '/products/setu-systems'
     | '/services/$slug'
@@ -115,6 +139,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApproachRoute: typeof ApproachRoute
   ContactRoute: typeof ContactRoute
+  IndustriesRoute: typeof IndustriesRoute
+  PrivacyRoute: typeof PrivacyRoute
   ResultsRoute: typeof ResultsRoute
   ProductsSetuSystemsRoute: typeof ProductsSetuSystemsRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -142,6 +168,20 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/results': {
@@ -179,6 +219,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApproachRoute: ApproachRoute,
   ContactRoute: ContactRoute,
+  IndustriesRoute: IndustriesRoute,
+  PrivacyRoute: PrivacyRoute,
   ResultsRoute: ResultsRoute,
   ProductsSetuSystemsRoute: ProductsSetuSystemsRoute,
   ServicesSlugRoute: ServicesSlugRoute,
