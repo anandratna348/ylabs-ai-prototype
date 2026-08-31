@@ -12,8 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApproachRouteImport } from './routes/approach'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ResultsRouteImport } from './routes/results'
 import { Route as ProductsSetuSystemsRouteImport } from './routes/products.setu-systems'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,6 +34,16 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResultsRoute = ResultsRouteImport.update({
   id: '/results',
   path: '/results',
@@ -40,50 +54,97 @@ const ProductsSetuSystemsRoute = ProductsSetuSystemsRouteImport.update({
   path: '/products/setu-systems',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/services/$slug',
+  path: '/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/approach': typeof ApproachRoute
   '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/privacy': typeof PrivacyRoute
   '/results': typeof ResultsRoute
   '/products/setu-systems': typeof ProductsSetuSystemsRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/approach': typeof ApproachRoute
   '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/privacy': typeof PrivacyRoute
   '/results': typeof ResultsRoute
   '/products/setu-systems': typeof ProductsSetuSystemsRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/approach': typeof ApproachRoute
   '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/privacy': typeof PrivacyRoute
   '/results': typeof ResultsRoute
   '/products/setu-systems': typeof ProductsSetuSystemsRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/approach' | '/contact' | '/results' | '/products/setu-systems'
+    | '/'
+    | '/approach'
+    | '/contact'
+    | '/industries'
+    | '/privacy'
+    | '/results'
+    | '/products/setu-systems'
+    | '/services/$slug'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/approach' | '/contact' | '/results' | '/products/setu-systems'
+  to:
+    | '/'
+    | '/approach'
+    | '/contact'
+    | '/industries'
+    | '/privacy'
+    | '/results'
+    | '/products/setu-systems'
+    | '/services/$slug'
+    | '/services'
   id:
     | '__root__'
     | '/'
     | '/approach'
     | '/contact'
+    | '/industries'
+    | '/privacy'
     | '/results'
     | '/products/setu-systems'
+    | '/services/$slug'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApproachRoute: typeof ApproachRoute
   ContactRoute: typeof ContactRoute
+  IndustriesRoute: typeof IndustriesRoute
+  PrivacyRoute: typeof PrivacyRoute
   ResultsRoute: typeof ResultsRoute
   ProductsSetuSystemsRoute: typeof ProductsSetuSystemsRoute
+  ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -109,6 +170,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/results': {
       id: '/results'
       path: '/results'
@@ -123,6 +198,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsSetuSystemsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/services/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -130,8 +219,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApproachRoute: ApproachRoute,
   ContactRoute: ContactRoute,
+  IndustriesRoute: IndustriesRoute,
+  PrivacyRoute: PrivacyRoute,
   ResultsRoute: ResultsRoute,
   ProductsSetuSystemsRoute: ProductsSetuSystemsRoute,
+  ServicesSlugRoute: ServicesSlugRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
