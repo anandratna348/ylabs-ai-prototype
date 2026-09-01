@@ -1,3 +1,4 @@
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { CTASection } from "@/components/CTASection";
@@ -9,7 +10,7 @@ export const Route = createFileRoute("/approach")({
       {
         name: "description",
         content:
-          "Discover, Design, Build, Deploy and Optimize — how 3ylabs takes AI from opportunity map to production operations.",
+          "Discover, Design, Build, Deploy and Optimize, how 3ylabs takes AI from opportunity map to production operations.",
       },
       { property: "og:title", content: "Our Approach: From Opportunity to Production | 3ylabs" },
       {
@@ -60,6 +61,7 @@ function ApproachPage() {
 
   return (
     <main>
+      <Breadcrumbs items={[{ label: "Approach" }]} />
       <section className="border-b border-border bg-[var(--gradient-tint)]">
         <div className="container-page py-16 sm:py-24">
           <p className="label-mono">Approach</p>
