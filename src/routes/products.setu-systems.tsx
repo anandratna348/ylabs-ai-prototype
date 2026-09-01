@@ -6,6 +6,14 @@ import { PortalExplorer } from "@/components/PortalExplorer";
 import { SetuArchitecture } from "@/components/SetuArchitecture";
 import { DemoModal } from "@/components/DemoModal";
 import { CTASection } from "@/components/CTASection";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
 
 export const Route = createFileRoute("/products/setu-systems")({
   head: () => ({
@@ -58,28 +66,33 @@ function SetuPage() {
 
       <section className="container-page py-16 sm:py-20">
         <h2 className="text-3xl font-bold">Six portals. One platform.</h2>
-        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {portals.map((p) => (
-            <article
-              key={p.id}
-              id={p.id}
-              className="surface-card flex scroll-mt-24 flex-col p-6 transition-shadow hover:shadow-[var(--shadow-lift)]"
-            >
-              <p className="label-mono">{p.label}</p>
-              <h3 className="mt-3 font-display text-xl font-semibold">{p.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{p.short}</p>
-              <p className="mt-4 text-sm font-medium text-[var(--brand-deep)]">✓ {p.benefits[0]}</p>
-              <button
-                type="button"
-                onClick={() => setDemo(p.name)}
-                className="mt-6 w-full rounded-lg border border-border px-4 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-secondary"
-              >
-                Request a Demo
-              </button>
-            </article>
-          ))}
-        </div>
+        <Carousel opts={{ align: "start" }} className="mt-8">
+          <CarouselContent className="-ml-4">
+            {portals.map((p) => (
+              <CarouselItem key={p.id} className="pl-4 sm:basis-1/2 lg:basis-1/3">
+                <article id={p.id} className="flex h-full scroll-mt-24 flex-col border-t border-border pt-5">
+                  <p className="label-mono">{p.label}</p>
+                  <h3 className="mt-3 font-display text-xl font-semibold">{p.name}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{p.short}</p>
+                  <p className="mt-4 text-sm font-medium text-[var(--brand-deep)]">✓ {p.benefits[0]}</p>
+                  <button
+                    type="button"
+                    onClick={() => setDemo(p.name)}
+                    className="mt-5 inline-flex cursor-pointer items-center gap-2 self-start text-sm font-semibold text-[var(--brand)] hover:underline"
+                  >
+                    Request a demo
+                  </button>
+                </article>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="mt-8 flex gap-2">
+            <CarouselPrevious className="static translate-y-0 cursor-pointer" />
+            <CarouselNext className="static translate-y-0 cursor-pointer" />
+          </div>
+        </Carousel>
       </section>
+
 
       <section className="bg-[var(--tint)] py-16 sm:py-20">
         <div className="container-page">
