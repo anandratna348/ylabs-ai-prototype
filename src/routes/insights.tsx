@@ -49,7 +49,8 @@ const posts = [
 ];
 
 function Insights() {
-  const [featured, ...rest] = posts;
+  const featured = posts[0]!;
+  const rest = posts.slice(1);
 
   return (
     <main>
